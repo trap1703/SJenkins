@@ -27,7 +27,7 @@ node {
 							script: [
 							    classpath: [], 
 								sandbox: false, 
-								script: '''file = ${param_files}, fx = sh(returnStdout: true, script: \'cat ${file}\', fy = fx.split("\n"), return fy '''
+								script: '''file = ${param_files}, println (file) fx = sh(returnStdout: true, script: \'cat ${file}\', fy = fx.split("\n"), return fy '''
 				     			]
 			         	]
 				]
