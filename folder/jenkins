@@ -34,6 +34,5 @@ node {
     	])
 	])
     sh 'echo Welcome to IT!'
-    println (file)
-    println (content)	
+
 }
