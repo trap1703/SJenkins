@@ -9,7 +9,7 @@ node {
     println "list of property files"
     p_files = files.split("\n").collect()[0,1]
     println (p_files)
-    X_files = sh(returnStdout:true, script: 'cat file1')
+    X_files = [ sh(returnStdout:true, script: 'cat file1')]
     println (X_files)
     properties([buildDiscarder(logRotator(numToKeepStr: '100')),
         parameters([
@@ -27,7 +27,7 @@ node {
 							script: [
 							    classpath: [], 
 								sandbox: false, 
-								script: '''file = ${param_files}, println (file), fx = sh(returnStdout: true, script: \'cat ${file}\', fy = fx.split("\n"), return fy '''
+								script: '''file = ${param_files}, fx = sh(returnStdout: true, script: \'cat ${file}\', fy = fx.split("\n"), return fy '''
 				     			]
 			         	]
 				]
