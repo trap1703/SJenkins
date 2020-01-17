@@ -1,0 +1,10 @@
+#!/bin/env groovy
+
+node {
+    deleteDir()
+
+    checkout scm
+
+      
+    sh 'echo Welcome to IT!'
+}
