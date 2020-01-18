@@ -29,7 +29,7 @@ node {
 							script: [
 							    classpath: [], 
 								sandbox: false, 
-								script: '''file = ${param_files}, fx = sh(returnStdout: true, script: \'cat ${file}\', fy = fx.split("\n").collect(), return fy '''
+								script: '''file = 'file1', fx = sh(returnStdout: true, script: \'cat ${file}\', fy = fx.split("\n").collect(), return fy '''
 				     			]
 			         	]
 				]
