@@ -25,12 +25,10 @@ node {
 				referencedParameters: 'param_files',
                         script: [
 						    $class: 'GroovyScript', 
-							script: [
-							    file = ${param_files},
-							    println (file),
+							script: [						   
 							    classpath: [],
 								sandbox: false, 
-								script: '''fx = sh(returnStdout: true, script: \'cat ${file}\', fy = fx.split("\n").collect(), return fy '''
+								script: '''file = ${param_files}, fx = sh(returnStdout: true, script: \'cat ${file}\', fy = fx.split("\n").collect(), return fy '''
 				     			]
 			         	]
 				]
