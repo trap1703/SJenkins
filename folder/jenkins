@@ -6,6 +6,7 @@ node {
     checkout scm
 
     files = sh(returnStdout: true, script: 'ls')
+    println (files)
     println "list of property files"
     p_files = files.split("\n").collect()[0,1]
     println (p_files)
