@@ -11,7 +11,7 @@ node {
     p_files = files.split("\n").collect()[0,1]
     println (p_files)
     X_files = sh(returnStdout:true, script: 'cat file2')
-    Y_files = X_files.split("\n")
+    Y_files = X_files.split("\n").collect()
     println (Y_files)
     properties([buildDiscarder(logRotator(numToKeepStr: '100')),
         parameters([
