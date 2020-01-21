@@ -60,7 +60,7 @@ node {
              name: 'files', 
              randomName: 'choice-parameter-941595250365512', 
              script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], 
-                      script: [classpath: [], sandbox: false, script: sh(returnStdout: true, script: 'echo ${env.AGENT_INFO}' ]]], 
+                      script: [classpath: [], sandbox: false, script: sh(returnStdout: true, script: 'echo ${env.AGENT_INFO}') ]]], 
             [$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'value', randomName: 'choice-parameter-941595264446171', referencedParameters: 'files', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''if (files.equals("prop-file")) {
   return ["property1", "property2", "property3"]
 } else if (files.equals("prop-file2")) {
