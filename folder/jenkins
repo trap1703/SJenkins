@@ -32,19 +32,43 @@ node {
     result5 = 'return ' + skoba + zzero + YY_files[0] + zzero + koma + space + zzero + YY_files[1] + zzero + koma + space +zzero + YY_files[2] + zzero + ']}' + zero +zero + zero
     
     
-    result22 = result2 + result3 + result4 + result5
+    println (result1)
     println (result2)
     println (result3)
     println (result4)
     println (result5)
+    result22 = result2 + result3 + result4 + result5
     println (result22)
     
     println (p_files[0])
     println (p_files[1])
-    X_files = sh(returnStdout:true, script: 'cat file2')
-    Y_files = X_files.split("\n").collect()
-    println (Y_files)
-   
+
+    // Write out any environment variables you like to a temporary file
+    sh 'echo export FOO=result1 > myenv'
+
+    // Stash away for later use
+    stash 'myenv'
+    properties([
+        parameters([
+            [$class: 'ChoiceParameter', 
+             choiceType: 'PT_SINGLE_SELECT', 
+             description: 'filename', 
+             variable: 'PACKER_O'
+             filterLength: 1, 
+             filterable: false, 
+             name: 'files', 
+             randomName: 'choice-parameter-941595250365512', 
+             script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], 
+                      script: [classpath: [], sandbox: false, script: 'echo $FOO' ]]], 
+            [$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'value', randomName: 'choice-parameter-941595264446171', referencedParameters: 'files', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''if (files.equals("prop-file")) {
+  return ["property1", "property2", "property3"]
+} else if (files.equals("prop-file2")) {
+  return ["text1", "text2", "text3", "text4"]
+}''']]]])])
+    
+    
+    
+    
       sh 'echo Welcome to IT!'
 
 }
