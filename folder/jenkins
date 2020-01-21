@@ -64,6 +64,6 @@ node {
     
     
     
-      sh 'echo Welcome to IT!'
+    sh 'echo Welcome to IT!'
 
 }
