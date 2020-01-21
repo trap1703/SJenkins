@@ -10,6 +10,15 @@ node {
     println "list of property files"
     p_files = files.split("\n").collect()[0,1]
     println (p_files)
+    space = ' '
+    kosoy ='\'
+    koma = ','
+    zero = '\''
+    skoba = '['
+    skoba1 = ']'
+    result1 = zero +zero + zero + 'return' + skoba + kosoy + zero + p_files[0] + kosoy + zero + koma + space +  kosoy + zero + p_files[0] + kosoy + zero + skoba1 + zero +zero + zero
+    
+    
     println (p_files[0])
     X_files = sh(returnStdout:true, script: 'cat file2')
     Y_files = X_files.split("\n").collect()
