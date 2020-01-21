@@ -49,6 +49,8 @@ node {
         out.createNewFile()
         out << result1 // пишем текст в файл
     }
+    TT_files = sh(returnStdout:true, script: 'cat /tmp/res1.txt')
+    println (TT_files)
     sh 'echo Welcome to IT!'
 
 }
