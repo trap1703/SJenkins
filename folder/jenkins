@@ -44,12 +44,11 @@ node {
     println (p_files[1])
 
     echo "Current agent  info: ${env.AGENT_INFO}"
-    script {
-        def agentInfo = sh script:'uname -a', returnStdout: true
-        println "Agent info within script: ${agentInfo}"
-        AGENT_INFO = result1
-        env.AGENT_INFO = AGENT_INFO
-    }
+    // Write out any environment variables you like to a temporary file
+    sh 'echo export FOO=result1 > myenv'
+    // Stash away for later use
+    stash 'myenv'
+    
     println (${env.AGENT_INFO})
     properties([
         parameters([
@@ -61,7 +60,10 @@ node {
              name: 'files', 
              randomName: 'choice-parameter-941595250365512', 
              script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], 
-                      script: [classpath: [], sandbox: false, script: sh(returnStdout: true, script: 'echo test') ]]], 
+                      script: [classpath: [], sandbox: false, script: sh(returnStdout: true, script: 'echo $FOO')
+                      ]
+                     ]
+            ], 
             [$class: 'CascadeChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: '', filterLength: 1, filterable: false, name: 'value', randomName: 'choice-parameter-941595264446171', referencedParameters: 'files', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''if (files.equals("prop-file")) {
   return ["property1", "property2", "property3"]
 } else if (files.equals("prop-file2")) {
