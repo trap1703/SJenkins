@@ -11,7 +11,7 @@ node {
     p_files = files.split("\n").collect()[0,1]
     println (p_files)
     space = ' '
-    kosoy ='\'
+    kosoy ='\\'
     koma = ','
     zero = '\''
     skoba = '['
