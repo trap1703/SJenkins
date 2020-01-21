@@ -49,7 +49,7 @@ node {
         out.createNewFile()
         out << 'aaa\nbbb\nccc' // пишем текст в файл
     }
-    TT_files = sh(returnStdout:true, script: 'cat /tmp/res1.txt')
+    TT_files = sh(returnStdout:true, script: 'cat /var/lib/jenkins/workspace/trap1703/res1.txt')
     println (TT_files)
     sh 'echo Welcome to IT!'
 
