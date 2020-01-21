@@ -20,7 +20,8 @@ node {
     println (result1)
     un = p_files[0]
     X_files = sh(returnStdout:true, script: 'cat ${un}')
-    println (X_files)
+    Y_files = X_files.split("\n").collect()
+    println (Y_files)
     
     
     
