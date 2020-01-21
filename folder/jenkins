@@ -1,4 +1,7 @@
 #!/bin/env groovy
+def FF
+def FFF
+
 
 node {
     deleteDir()
@@ -42,14 +45,7 @@ node {
     
     println (p_files[0])
     println (p_files[1])
-
-    echo "Current agent  info: ${env.AGENT_INFO}"
-    // Write out any environment variables you like to a temporary file
-    sh 'echo export FOO=result1 > myenv'
-    // Stash away for later use
-    stash 'myenv'
-    
-    println (${env.AGENT_INFO})
+    FF = result1
     properties([
         parameters([
             [$class: 'ChoiceParameter', 
@@ -60,7 +56,7 @@ node {
              name: 'files', 
              randomName: 'choice-parameter-941595250365512', 
              script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], 
-                      script: [classpath: [], sandbox: false, script: sh(returnStdout: true, script: 'echo $FOO')
+                      script: [classpath: [], sandbox: false, script: sh(returnStdout: true, script: "echo $FF")
                       ]
                      ]
             ], 
