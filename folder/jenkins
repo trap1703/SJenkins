@@ -40,13 +40,6 @@ node {
     result22 = result2 + result3 + result4 + result5
     println (result22)
     
-    def out= new File('res1.txt')
-    // если файл не существует, то создаем файл
-    if(!out.exists()) {
-        out.createNewFile()
-        out << result1 // пишем текст в файл
-    }
-    
     
     println (p_files[0])
     println (p_files[1])
