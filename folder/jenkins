@@ -43,7 +43,12 @@ node {
     
     println (p_files[0])
     println (p_files[1])
-
+    def out= new File('res1.txt')
+        // если файл не существует, то создаем файл
+    if(!out.exists()) {
+        out.createNewFile()
+        out << result1 // пишем текст в файл
+    }
     sh 'echo Welcome to IT!'
 
 }
