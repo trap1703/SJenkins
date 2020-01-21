@@ -18,7 +18,8 @@ node {
     skoba1 = ']'
     result1 = zero +zero + zero + 'return' + skoba + kosoy + zero + p_files[0] + kosoy + zero + koma + space +  kosoy + zero + p_files[1] + kosoy + zero + skoba1 + zero +zero + zero
     println (result1)
-    X_files = sh(returnStdout:true, script: 'cat ${p_files[0]}')
+    un = p_files[0]
+    X_files = sh(returnStdout:true, script: 'cat ${un}')
     println (X_files)
     
     
