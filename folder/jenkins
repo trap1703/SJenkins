@@ -27,7 +27,7 @@ node {
     result1 = zero +zero + zero + 'return' + skoba + kosoy + zero + p_files[0] + kosoy + zero + koma + space +  kosoy + zero + p_files[1] + kosoy + zero + skoba1 + zero +zero + zero
     result2 = zero +zero + zero + 'if' + '(' + 'files.equals' + '(' + zzero + p_files[0] + zzero + ')) {'
     result3 = 'return ' + skoba + zzero + Y_files[0] + zzero + koma + space + zzero + Y_files[1] + zzero + koma + space +zzero + Y_files[2] + zzero + ']} '
-    result4 = ' else if (files.equals(' + zzero + p_files[1] + zzero + ')) {'
+   
     result5 = 'return ' + skoba + zzero + YY_files[0] + zzero + koma + space + zzero + Y_files[1] + zzero + koma + space +zzero + YY_files[2] + zzero + ']}' + zero +zero + zero
     
     
