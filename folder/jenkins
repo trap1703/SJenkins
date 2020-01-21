@@ -47,9 +47,9 @@ node {
         // если файл не существует, то создаем файл
     if(!out.exists()) {
         out.createNewFile()
-        out << result1 // пишем текст в файл
+        out << ${result1} // пишем текст в файл
     }
-    TT_files = sh(returnStdout:true, script: "cat /tmp/res1.txt")
+    TT_files = sh(returnStdout:true, script: 'cat /tmp/res1.txt')
     println (TT_files)
     sh 'echo Welcome to IT!'
 
