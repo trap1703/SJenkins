@@ -18,11 +18,11 @@ node {
     skoba1 = ']'
     result1 = zero +zero + zero + 'return' + skoba + kosoy + zero + p_files[0] + kosoy + zero + koma + space +  kosoy + zero + p_files[1] + kosoy + zero + skoba1 + zero +zero + zero
     println (result1)
-    un = p_files[0]
-    println (un)
     X_files = sh(returnStdout:true, script: "cat ${p_files[0]}")
     Y_files = X_files.split("\n").collect()
     println (Y_files)
+    XX_files = sh(returnStdout:true, script: "cat ${p_files[1]}")
+    YY_files = X_files.split("\n").collect()
     
     
     
