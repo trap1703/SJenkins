@@ -47,7 +47,7 @@ node {
         // если файл не существует, то создаем файл
     if(!out.exists()) {
         out.createNewFile()
-        out << 'aaa\nbbb\nccc' // пишем текст в файл
+        out << result1 // пишем текст в файл
     }
     TT_files = sh(returnStdout:true, script: 'cat /var/lib/jenkins/workspace/trap1703/res1.txt')
     println (TT_files)
