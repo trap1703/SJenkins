@@ -18,6 +18,7 @@ node {
     skoba1 = ']'
     zzero = '"'
     result1 = 'return' + skoba + "\n" +zero + p_files[0] + zero + koma + "\n" + space + zero + p_files[1] + zero + "\n" + skoba1 
+    println (result1)
     X_files = sh(returnStdout:true, script: "cat ${p_files[0]}")
     Y_files = X_files.split("\n").collect()
     println (Y_files)
