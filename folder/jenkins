@@ -13,28 +13,7 @@ node {
     X_files = sh(returnStdout:true, script: 'cat file2')
     Y_files = X_files.split("\n").collect()
     println (Y_files)
-    properties([buildDiscarder(logRotator(numToKeepStr: '100')),
-        parameters([
-                choice(choices: p_files, 
-				description: 'test test', 
-				name: 'param_files'),
-                [$class: 'CascadeChoiceParameter',
-				choiceType: 'PT_SINGLE_SELECT',
-				name: 'main_param',
-				randomName: 'choice-parameter-348448661107465',
-				referencedParameters: 'param_files',
-                        script: [
-						    $class: 'GroovyScript', 
-							fallbackScript: [ classpath: [], sandbox: false, script: ''],
-							script: [
-							    classpath: [], 
-								sandbox: false, 
-								script: '''file = ${param_files}, fx = sh(returnStdout: true, script: \'cat ${file}\', fy = fx.split("\n").collect(), return fy '''
-				     			]
-			         	]
-				]
-    	])
-	])
+   
       sh 'echo Welcome to IT!'
 
 }
