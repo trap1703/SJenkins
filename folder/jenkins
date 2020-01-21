@@ -23,7 +23,7 @@ node {
     Y_files = X_files.split("\n").collect()
     println (Y_files)
     XX_files = sh(returnStdout:true, script: "cat ${p_files[1]}")
-    YY_files = X_files.split("\n").collect()
+    YY_files = XX_files.split("\n").collect()
     println (YY_files)
     result1 = zero +zero + zero + 'return' + skoba + kosoy + zero + p_files[0] + kosoy + zero + koma + space +  kosoy + zero + p_files[1] + kosoy + zero + skoba1 + zero +zero + zero
     result2 = zero +zero + zero + 'if' + '(' + 'files.equals' + '(' + zzero + p_files[0] + zzero + ')) {'
