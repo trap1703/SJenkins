@@ -16,6 +16,7 @@ node {
     zero = '\''
     skoba = '['
     skoba1 = ']'
+    zzero = '"'
     result1 = zero +zero + zero + 'return' + skoba + kosoy + zero + p_files[0] + kosoy + zero + koma + space +  kosoy + zero + p_files[1] + kosoy + zero + skoba1 + zero +zero + zero
     println (result1)
     X_files = sh(returnStdout:true, script: "cat ${p_files[0]}")
@@ -24,9 +25,13 @@ node {
     XX_files = sh(returnStdout:true, script: "cat ${p_files[1]}")
     YY_files = X_files.split("\n").collect()
     result1 = zero +zero + zero + 'return' + skoba + kosoy + zero + p_files[0] + kosoy + zero + koma + space +  kosoy + zero + p_files[1] + kosoy + zero + skoba1 + zero +zero + zero
-    result2 = zero +zero + zero + 'if' + '(' + 'files.equals' + '(' + p_files[0] 
-    zzero = '"'
-    println (zzero)
+    result2 = zero +zero + zero + 'if' + '(' + 'files.equals' + '(' + zzero + p_files[0] + zzero + ')) {'
+    result3 = 'return ' + skoba + zzero + Y_files[0] + zzero + koma + space + zzero + Y_files[1] + zzero + koma + space +zzero + Y_files[2] + zzero + ']} '
+    
+    result22 = result2 + result3
+    println (result2)
+    println (result3)
+    println (result22)
     
     println (p_files[0])
     println (p_files[1])
